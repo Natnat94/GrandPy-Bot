@@ -2,18 +2,23 @@
     <link rel="stylesheet" href="../static/style.css" />
 
     <body>
-        <div style="width : 300px ; margin: auto; background: lightblue;">
-            <div id="map" style="width: 299px; height: 299px; border: 1px solid black"></div>
-            <form action="api" method="post" novalidate>
-                <textarea name="Text1" cols="40" rows="5"></textarea>
-                <div style="text-align:center">  
-                        <input type="submit" />  
-                    </div> 
-            </form>
-            <script src="https://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
-            <script src="https://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
-            <script src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
-            <script src="{{ url_for('static', filename='js/projet.js') }}"></script>
-        </div>
+        <header>
+            <h1>Voici GrandPy !!</h1><br> 
+        </header>
+        <main>
+            <div style="width : 300px ; margin: auto; background: lightblue;">
+                <div id="map" style="width: 299px; height: 299px; border: 1px solid black"></div>
+                <form action="api" method="post" novalidate>
+                    <textarea name="Text1" cols="40" rows="5"></textarea>
+                    <div style="text-align:center">  
+                            <input type="submit" />  
+                        </div> 
+                </form>
+                <script src="https://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+                <script src="https://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+                <script src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
+                <script src="{{ url_for('static', filename='js/projet.js') }}"></script>
+            </div>
+        </main>
     </body>
 </html>

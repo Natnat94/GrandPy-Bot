@@ -1,11 +1,14 @@
+// génere la carte de here.com au coordonné lat: 48.85824, lng: 2.2945
+// -------------------------------------------------------------------------------------------------------------------------------------------------
 const platform = new H.service.Platform({"app_id": "W82jOVCtSiQ4dZHBaU8e","app_code": "2J6YA4nvRMB_IHJlwo7uXQ"});
 const map = new H.Map(document.getElementById("map"),platform.createDefaultLayers().normal.map,{zoom: 15,center: { lat: 48.85824, lng: 2.2945 }});
 const mapEvent = new H.mapevents.MapEvents(map);
 const mapBehavior = new H.mapevents.Behavior(mapEvent);
 const marker = new H.map.Marker({ lat: 48.85824, lng: 2.2945 });
 map.addObject(marker);
-var x = document.getElementById( "map" )
 
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+var x = document.getElementById( "map" )
 // Exécute un appel AJAX POST
 // Prend en paramètres l'URL cible, la donnée à envoyer et la fonction callback appelée en cas de succès
 function ajaxPost(url, data, callback) {
@@ -25,7 +28,8 @@ function ajaxPost(url, data, callback) {
     req.send(data);
 }
 
-
+// formulaire texte et envoie a flask en POST
+// ---------------------------------------------------------------------------------------------------------------------
 var form = document.querySelector("form");
 // Gestion de la soumission du formulaire
 form.addEventListener("submit", function (e) {
@@ -33,10 +37,10 @@ form.addEventListener("submit", function (e) {
     // Récupération des champs du formulaire dans l'objet FormData
     var data = new FormData(form);
     // Envoi des données du formulaire au serveur
-    // La fonction callback est ici vide
     ajaxPost("/api", data, function (response) {
         // Affichage dans la console en cas de succès
         console.log("Commande envoyée au serveur");
+        // >> -------------------- A partir de là ca ne reagi plus --------------------<<
         var places = response["result"];
         for (var p in places) {
             console.error(p)
