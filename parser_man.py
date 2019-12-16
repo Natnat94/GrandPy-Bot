@@ -18,7 +18,7 @@ class Localisation:
         # pprint(result)
         # with open("result.json", "w") as write_file:
         #     json.dump(result, write_file)
-        return wiki
+        return result
     
     def parser(self, text = "ou se trouve la tours eiffel"):
         regex = r"(ou se trouve|comment s'apelle|adresse|situe)(\s+)(?P<question>.*\b)?"
