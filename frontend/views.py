@@ -11,6 +11,10 @@ app.config.from_object(Config)
 @app.route('/map', methods=['GET','POST'])
 def map():
     result = "{ lat: 48.85, lng: 2.29 }"
+    if request.method == "POST":
+        loc = Localisation()
+        result = loc.run(request.form['Text1'])
+        return jsonify(result = result)
     return render_template('map.html', result = result)
 
 @app.route('/api', methods=['GET','POST'])
