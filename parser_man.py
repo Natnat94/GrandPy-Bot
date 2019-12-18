@@ -11,13 +11,14 @@ class Localisation:
     def run(self, text = "ou se trouve la tours eiffel"):
         result = {}
         question = self.parser(text)
-        geoloc = self.map_api(question, "48.8482,2.3724;r=245799")
+        geoloc, address = self.map_api(question, "48.8482,2.3724;r=245799")
         result["here"] = geoloc
+        result["address"] = address
         wiki = self.wiki_api(geoloc)
         result["wiki"] = wiki
         # pprint(result)
-        # with open("result.json", "w") as write_file:
-        #     json.dump(result, write_file)
+        with open("result.json", "w") as write_file:
+            json.dump(result, write_file)
         return result
     
     def parser(self, text = "ou se trouve la tours eiffel"):
@@ -41,9 +42,12 @@ class Localisation:
         }
         R = S.get(url=URL, params=PARAMS)
         DATA = R.json()
+        pprint(DATA)
+        address = DATA["results"]["items"][0]["vicinity"]
+        address = address.replace("<br/>"," ")
         DATA = DATA["results"]["items"][0]["position"]
         DATA = [str(DATA[0]), str(DATA[1])]
-        return DATA
+        return DATA, address
 
     def wiki_api(self, localisation):
 
@@ -53,28 +57,32 @@ class Localisation:
         PARAMS = {
         "format": "json",
         "generator": "geosearch",
-        "prop": "coordinates|pageimages|description|info",
+        "prop": "coordinates|pageimages|extracts|info",
         "inprop": "url",
         "pithumbsize": 144,
         "ggscoord": localisation,
-        "ggslimit": "6",
+        "ggslimit": "5",
         "ggsradius": "10000",
-        "action": "query"
+        "action": "query",
+        "exintro": "True",
+        "explaintext": "True",
         }
         R = S.get(url=URL, params=PARAMS)
         DATA = R.json()
+        with open("data_file.json", "w") as write_file:
+            json.dump(DATA, write_file)
         places = DATA['query']['pages']
         results = []
         for k in places:
             title = places[k]['title']
-            description = places[k]['description'] if "description" in places[k] else ''
+            abstract = places[k]['extract']
             thumbnail = places[k]['thumbnail']['source'] if "thumbnail" in places[k] else ''
             article_url = places[k]['fullurl']
             place_loc = (places[k]['coordinates'][0]['lat'], places[k]['coordinates'][0]['lon'])
 
             results.append({
                 'title': title,
-                'description': description,
+                'abstract': abstract,
                 'thumbnail': thumbnail,
                 'articleUrl': article_url,
                 'localisation': place_loc})
