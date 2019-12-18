@@ -1,60 +1,37 @@
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" type="text/css" href="../static/style.css" />
+<title>GrandPy bot</title>
+
+<head>
+    <link rel="icon" href="../static/image/man.png">
+</head>
 
 <body>
     <div class="header">
         <h1>Voici GrandPy !!</h1><br>
     </div>
     <div class="main">
-        <div id="wrapper">
-            <div id="up">
-                <div id="display">
-                    <div class="container">
-                        <img src="../static/image/bandmember.jpg" alt="Avatar" style="width:100%;">
-                        <p>Hello. How are you today?</p>
-                        <span class="time-right">11:00</span>
-                    </div>
-
-                    <div class="container darker">
-                        <img src="../static/image/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
-                        <p>Hey! I'm fine. Thanks for asking!</p>
-                        <span class="time-left">11:01</span>
-                    </div>
-                    <div class="container darker">
-                        <img src="../static/image/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
-                        <p>Hey! I'm fine. Thanks for asking!</p>
-                        <span class="time-left">11:01</span>
-                    </div>
-                    <div class="container">
-                        <img src="../static/image/bandmember.jpg" alt="Avatar" style="width:100%;">
-                        <p>Sweet! So, what do you wanna do today?</p>
-                        <span class="time-right">11:02</span>
-                    </div>
-
-                    <div class="container darker">
-                        <img src="../static/image/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
-                        <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-                        <span class="time-left">11:05</span>
-                    </div>
+        <div id="up">
+            <div id="display">
+                <div class="container">
+                    <img src="../static/image/bandmember.jpg" alt="Avatar" style="width:100%;">
+                    <p>Salut c'est GrandPy, le papy robot ! Que puis-je faire pour toi ?</p>
                 </div>
-                <div id="map"></div>
             </div>
-            <div id="input-group">
-                <div style="text-align:center">
-                    <form action="map" method="post" novalidate>
-                        <input type="text" name="Text1" placeholder="quelle est ta question">
-                        <input type="submit">
-                    </form>
-                </div>
+            <div id="map"></div>
+        </div>
+        <div id="input-group">
+            <div style="text-align:center; width: 100%;">
+                <form action="map" method="post" novalidate>
+                    <input type="text" name="Text1" placeholder=" Quelle est ta question">
+                    <input type="submit">
+                </form>
             </div>
         </div>
     </div>
-    <div class="footer">
-        merci d'etre la
-    </div>
-
 </body>
+<footer> Nathan Mimoun <br><a href="https://github.com/Natnat94/project_7 "><b>lien vers Github</b></a></footer>
 <script src="https://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
 <script src="https://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
 <script src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>

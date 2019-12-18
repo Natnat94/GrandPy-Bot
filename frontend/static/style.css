@@ -1,47 +1,107 @@
-#wrapper
-{width: auto ; height: auto; margin: auto; overflow: hidden; background: lightblue; border: 1px solid blue; border-radius: 15px;}
 
-input[type=text] 
-{border: 1px solid gray ; border-radius: 5px; width: auto;}
-input[type=submit] 
-{border: 1px solid gray ; border-radius: 5px; flex: 1; width: 70px;}
-#input-group{display: flex; flex-direction: row-reverse ; width: max-content ; padding: 7px 7px;}
-#display
-{background-color: #ebe6d1; float: left; width: 100%; height: 400px; border-radius: inherit; padding: 15px 3px; overflow-y: scroll; box-shadow:  3px 3px 10px #888;}
-#map
-{width: 30%; overflow: hidden; float: right; height: 400px; padding: 10px 4px ; border: 1px solid black; border-radius: inherit; box-shadow:  3px 3px 10px #888; border-radius: inherit;}
-
-#up{display: flex}
-
-body{background-color: bisque;}
-.header, .footer {
-  background-color: #F1F1F1;
+body {
+  background-color: #7451eb;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+.header {
+  background-color: #7451eb;
   text-align: center;
   padding: 20px;
 }
 
-.item{overflow: auto; background-color: blueviolet; width: fit-content; display: inline-block}
+footer {
+  text-align: center;
+  padding-top: 15px;
+}
 
+a {
+  color: blanchedalmond;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.main {
+  width: auto ; 
+  height: auto; 
+  margin: auto; 
+  overflow: hidden; 
+  background: #ebe6d1; 
+  box-shadow:  3px 3px 10px #888; 
+  border-radius: 15px; 
+}
+
+input[type=text] {
+  border: 1px solid gray ; 
+  border-radius: 5px; 
+  width: 80%;
+}
+
+input[type=submit] {
+  border: 1px solid gray ; 
+  border-radius: 5px; 
+  flex: 1; 
+  width: 70px;
+}
+
+#input-group {
+  display: flex; 
+  flex-direction: row-reverse ; 
+  width: 100%; 
+  margin: 20px ; 
+  padding: 7px 7px;
+}
+
+#display {
+  background-color: #ebe6d1; 
+  float: left; 
+  width: 100%; 
+  height: 400px; 
+  border-radius: inherit; 
+  margin: 2px 1px 0px 1px; 
+  padding: 15px 3px; 
+  overflow-y: scroll; 
+  box-shadow:  3px 3px 10px #888;
+}
+
+#map {
+  width: 30%; 
+  overflow: hidden; 
+  float: right; 
+  margin: 1px 1px 1px 1px; 
+  height: 400px; 
+  padding: 15px 4px ; 
+  border-radius: inherit; 
+  box-shadow:  3px 3px 10px #888; 
+  border-radius: inherit;
+}
+
+#up {
+  display: flex
+}
+
+
+/* Chat containers */
 .container {
   border: 2px solid #dedede;
   background-color: #f1f1f1;
   border-radius: 5px;
   padding: 10px;
   margin: 10px 0;
-  
 }
-
+/* Darker chat container */
 .darker {
   border-color: #ccc;
-  background-color: #ddd;
-}
+  background-color: #ddd;}
 
+
+/* Clear floats */
 .container::after {
   content: "";
   clear: both;
   display: table;
 }
 
+/* Style images */
 .container img {
   float: left;
   max-width: 60px;
@@ -50,18 +110,30 @@ body{background-color: bisque;}
   border-radius: 50%;
 }
 
+/* Style the right image */
 .container img.right {
   float: right;
   margin-left: 20px;
   margin-right:0;
 }
 
-.time-right {
-  float: right;
-  color: #aaa;
+
+.response {display: flex;
+  flex-direction: row;}
+
+.container p {
+  flex: 1;
+  padding-top: 14px;
+  text-align: left;
+  overflow-y: auto;
+  max-height: 150px;
 }
 
-.time-left {
-  float: left;
-  color: #999;
+#wikip {
+  float: right;
+  padding-top: 15px;
+  margin-left: 10px;
+  margin-right:0;
+  max-height: 150px;
+  min-width: 90px;
 }
