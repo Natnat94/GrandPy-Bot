@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, flash, url_for, request, jso
 from config import Config
 from form import LoginForm
 from parser_man import Localisation
+import json
 
 
 app = Flask(__name__)
@@ -12,9 +13,13 @@ app.config.from_object(Config)
 def map():
     result = "{ lat: 48.85, lng: 2.29 }"
     if request.method == "POST":
-        loc = Localisation()
-        result = loc.run(request.form['Text1'])
-        return jsonify(result = result)
+        try:
+            loc = Localisation()
+            result = loc.run(request.form['Text1'])
+            return jsonify(result = result)
+        except:
+            print("probleme")
+
     return render_template('map.html', result = result)
 
 @app.route('/api', methods=['GET','POST'])
