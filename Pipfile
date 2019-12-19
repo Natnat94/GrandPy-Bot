@@ -5,10 +5,12 @@ verify_ssl = true
 
 [dev-packages]
 pylint = "*"
+pytest = "*"
 
 [packages]
-pytest = "*"
 requests = "*"
+flask = "*"
+flask-wtf = "*"
 
 [requires]
 python_version = "3.7"
