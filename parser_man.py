@@ -16,7 +16,7 @@ class Localisation:
         result["address"] = address
         wiki = self.wiki_api(geoloc)
         result["wiki"] = wiki
-        # pprint(result)
+        result["status"] = "true"
         with open("result.json", "w") as write_file:
             json.dump(result, write_file)
         return result
@@ -42,7 +42,6 @@ class Localisation:
         }
         R = S.get(url=URL, params=PARAMS)
         DATA = R.json()
-        pprint(DATA)
         address = DATA["results"]["items"][0]["vicinity"]
         address = address.replace("<br/>"," ")
         DATA = DATA["results"]["items"][0]["position"]
