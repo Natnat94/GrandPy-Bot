@@ -3,7 +3,6 @@ from config import Config
 from form import LoginForm
 from parser_man import Localisation
 import json
-from pprint import pprint
 
 
 app = Flask(__name__)
@@ -16,16 +15,16 @@ def map():
 
 @app.route('/api', methods=['POST'])
 def api():
+    band_member = url_for('static', filename ='image/bandmember.jpg')
+    avatar = url_for('static', filename ='image/avatar_g2.jpg')
     try:
         loc = Localisation()
         result = loc.run(request.form['Text1'])
-        band_member = url_for('static', filename ='image/bandmember.jpg')
         result["robot"] = band_member
-        avatar = url_for('static', filename ='image/avatar_g2.jpg')
         result["avatar"] = avatar
         return jsonify(result)
     except:
-        return jsonify(status = "false")
+        return jsonify(status = "false", robot = band_member, avatar = avatar)
 
 
 #### Parti hors sujet !!!!!!! #####
