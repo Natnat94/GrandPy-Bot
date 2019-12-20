@@ -3,32 +3,29 @@ from config import Config
 from form import LoginForm
 from parser_man import Localisation
 import json
+from pprint import pprint
 
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
 @app.route('/')
-@app.route('/map', methods=['GET','POST'])
+@app.route('/map')
 def map():
-    result = "{ lat: 48.85, lng: 2.29 }"
-    if request.method == "POST":
-        try:
-            loc = Localisation()
-            result = loc.run(request.form['Text1'])
-            return jsonify(result = result)
-        except:
-            print("probleme")
+    return render_template('map.html')
 
-    return render_template('map.html', result = result)
-
-@app.route('/api', methods=['GET','POST'])
+@app.route('/api', methods=['POST'])
 def api():
-    if request.method == "POST":
+    try:
         loc = Localisation()
         result = loc.run(request.form['Text1'])
-        return jsonify(result = result)
-    return render_template('map.html', result = result)
+        band_member = url_for('static', filename ='image/bandmember.jpg')
+        result["robot"] = band_member
+        avatar = url_for('static', filename ='image/avatar_g2.jpg')
+        result["avatar"] = avatar
+        return jsonify(result)
+    except:
+        return jsonify(status = "false")
 
 
 #### Parti hors sujet !!!!!!! #####
