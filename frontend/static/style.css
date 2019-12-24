@@ -24,6 +24,7 @@ a {
   width: auto ; 
   height: auto; 
   margin: auto; 
+  max-width: 50%;
   overflow: hidden; 
   background: #ebe6d1; 
   box-shadow:  3px 3px 10px #888; 
@@ -46,7 +47,6 @@ input[type=submit] {
 #input-group {
   display: flex; 
   flex-direction: row-reverse ; 
-  width: 100%; 
   margin: 20px ; 
   padding: 7px 7px;
 }
@@ -64,12 +64,10 @@ input[type=submit] {
 }
 
 #map {
-  width: 30%; 
+  width: 300px; 
   overflow: hidden; 
-  float: right; 
-  margin: 1px 1px 1px 1px; 
-  height: 400px; 
-  padding: 15px 4px ; 
+  margin: 0 auto; 
+  height: 300px; 
   border-radius: inherit; 
   box-shadow:  3px 3px 10px #888; 
   border-radius: inherit;
@@ -120,6 +118,12 @@ input[type=submit] {
 
 .response {display: flex;
   flex-direction: row;}
+
+.message {
+  overflow: hidden; 
+  float: left; 
+  margin: 1px 1px 1px 1px; 
+  padding: 10px 10px 10px 10px;}
 
 .container p {
   flex: 1;
