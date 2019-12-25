@@ -1,1 +1,1 @@
-worker: python run.py
+web: python run.py runserver "127.0.0.1:$PORT"
