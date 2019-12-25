@@ -11,6 +11,8 @@ pytest = "*"
 requests = "*"
 flask = "*"
 flask-wtf = "*"
+gunicorn = "*"
+fcntl = "*"
 
 [requires]
 python_version = "3.7"
