@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import re
-import requests
 import json
-from pprint import pprint
+import re
+
+import requests
+
 
 class Localisation:
 
@@ -17,12 +18,10 @@ class Localisation:
         wiki = self.wiki_api(geoloc)
         result["wiki"] = wiki
         result["status"] = "true"
-        with open("result.json", "w") as write_file:
-            json.dump(result, write_file)
         return result
     
     def parser(self, text = "ou se trouve la tours eiffel"):
-        regex = r"(ou se trouve|comment s'apelle|adresse|situe)(\s+)(?P<question>.*\b)?"
+        regex = r"(ou se trouve|comment s'appelle|adresse|situe)(\s+)(?P<question>.*\b)?"
         test_str = text
         matches = re.finditer(regex, test_str)
         for r in matches:
@@ -68,8 +67,6 @@ class Localisation:
         }
         R = S.get(url=URL, params=PARAMS)
         DATA = R.json()
-        with open("data_file.json", "w") as write_file:
-            json.dump(DATA, write_file)
         places = DATA['query']['pages']
         results = []
         for k in places:
@@ -78,7 +75,6 @@ class Localisation:
             thumbnail = places[k]['thumbnail']['source'] if "thumbnail" in places[k] else ''
             article_url = places[k]['fullurl']
             place_loc = (places[k]['coordinates'][0]['lat'], places[k]['coordinates'][0]['lon'])
-
             results.append({
                 'title': title,
                 'abstract': abstract,
