@@ -100,8 +100,12 @@ function createMap(obj, mapElt) {
     var localisation = obj.here;
     var latitude = localisation[0];
     var longitude = localisation[1];
-    const platform = new H.service.Platform({ "app_id": "W82jOVCtSiQ4dZHBaU8e", "app_code": "2J6YA4nvRMB_IHJlwo7uXQ", useHTTPS: true,
-    useCIT: true });
+    const platform = new H.service.Platform({
+        app_id: "W82jOVCtSiQ4dZHBaU8e",
+        app_code: "2J6YA4nvRMB_IHJlwo7uXQ",
+        useHTTPS: true,
+        useCIT: true
+    });
     const map = new H.Map(mapElt, platform.createDefaultLayers().normal.map, { zoom: 17, center: { lat: latitude, lng: longitude } });
     const mapEvent = new H.mapevents.MapEvents(map);
     const mapBehavior = new H.mapevents.Behavior(mapEvent);
