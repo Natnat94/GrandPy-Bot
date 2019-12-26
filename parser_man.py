@@ -30,7 +30,7 @@ class Localisation:
 
     def map_api(self, name, zone):
         S = requests.Session()
-        URL = "http://places.demo.api.here.com/places/v1/discover/search"
+        URL = "https://places.demo.api.here.com/places/v1/discover/search"
         PARAMS = {
             "app_code": "AJKnXv84fjrb0KIHawS0Tg",
             "app_id": "DemoAppId01082013GAL",
