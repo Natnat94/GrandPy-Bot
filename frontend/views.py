@@ -8,9 +8,9 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 @app.route('/')
-@app.route('/map')
+@app.route('/index')
 def map():
-    return render_template('map.html')
+    return render_template('index.html')
 
 @app.route('/api', methods=['POST'])
 def api():
