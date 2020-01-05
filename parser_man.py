@@ -21,7 +21,7 @@ class Localisation:
         return result
     
     def parser(self, text = "ou se trouve la tours eiffel"):
-        regex = r"(ou se trouve|comment s'appelle|adresse|situe)(\s+)(?P<question>.*\b)?"
+        regex = r"(ou se trouve|comment s'appelle|adresse|situe|trouve )(\s+)(?P<question>.*\b)?"
         test_str = text
         matches = re.finditer(regex, test_str)
         for r in matches:

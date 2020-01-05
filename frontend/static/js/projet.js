@@ -84,7 +84,7 @@ function buildAnswerBox(display, avatar_url, address, obj) {
     parapar.appendChild(para);
 
     let yeo = document.createElement("p");
-    yeo.textContent = resultat[0]["abstract"];
+    yeo.innerHTML = resultat[0]["abstract"] + "<br> <a href=\"" + resultat[0]["articleUrl"] + "\"> plus d'info ici</a>";
     para.appendChild(yeo);
 
     let imi = document.createElement("img");
