@@ -3,5 +3,5 @@
 
 import os
 
-class Config(object):
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+SECRET_KEY = os.environ.get('SECRET_KEY') or 'il manque quelque chose'
+ID_KEY = os.environ.get('ID_KEY') or 'probleme de code'

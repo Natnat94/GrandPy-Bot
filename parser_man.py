@@ -6,6 +6,8 @@ import re
 
 import requests
 
+from config import ID_KEY, SECRET_KEY
+
 
 class Localisation:
 
@@ -16,11 +18,13 @@ class Localisation:
         result["here"] = geoloc
         result["address"] = address
         wiki = self.wiki_api(geoloc)
+        print(SECRET_KEY)
+        print(ID_KEY)
         result["wiki"] = wiki
         result["status"] = "true"
         return result
     
-    def parser(self, text = "ou se trouve la tours eiffel"):
+    def parser(self, text):
         regex = r"(ou se trouve|comment s'appelle|adresse|situe|trouve )(\s+)(?P<question>.*\b)?"
         test_str = text
         matches = re.finditer(regex, test_str)
@@ -32,8 +36,8 @@ class Localisation:
         S = requests.Session()
         URL = "https://places.demo.api.here.com/places/v1/discover/search"
         PARAMS = {
-            "app_code": "AJKnXv84fjrb0KIHawS0Tg",
-            "app_id": "DemoAppId01082013GAL",
+            "app_code": SECRET_KEY,
+            "app_id": ID_KEY,
             "in": zone,
             "pretty": "True",
             "q": name,
