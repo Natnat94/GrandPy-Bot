@@ -18,8 +18,6 @@ class Localisation:
         result["here"] = geoloc
         result["address"] = address
         wiki = self.wiki_api(geoloc)
-        print(SECRET_KEY)
-        print(ID_KEY)
         result["wiki"] = wiki
         result["status"] = "true"
         return result
