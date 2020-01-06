@@ -101,12 +101,10 @@ function createMap(obj, mapElt) {
     var latitude = localisation[0];
     var longitude = localisation[1];
     const platform = new H.service.Platform({
-        app_id: "W82jOVCtSiQ4dZHBaU8e",
-        app_code: "2J6YA4nvRMB_IHJlwo7uXQ",
-        useHTTPS: true,
-        useCIT: true
+        apikey: "5CS2Yx-XJjtGg4-xW89KwOVIBrdp7_qEEYB_wM7Ey7w"
     });
-    const map = new H.Map(mapElt, platform.createDefaultLayers().normal.map, { zoom: 17, center: { lat: latitude, lng: longitude } });
+    var defaultLayers = platform.createDefaultLayers();
+    const map = new H.Map(mapElt, defaultLayers.vector.normal.map, { zoom: 17, center: { lat: latitude, lng: longitude } });
     const mapEvent = new H.mapevents.MapEvents(map);
     const mapBehavior = new H.mapevents.Behavior(mapEvent);
     const marker = new H.map.Marker({ lat: latitude, lng: longitude });
