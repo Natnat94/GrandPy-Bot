@@ -2,9 +2,9 @@
 __py*
 cv*
 grand*
-index*
 login*
 wiki*
 *.txt
 *.json
 .pyt*
+*.docx
