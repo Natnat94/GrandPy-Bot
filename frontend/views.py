@@ -1,11 +1,11 @@
 from flask import (Flask, flash, jsonify, redirect, render_template, request,
                    url_for)
 
-from config import Config
+
 from parser_man import Localisation
 
 app = Flask(__name__)
-app.config.from_object(Config)
+# app.config.from_object(Config)
 
 @app.route('/')
 @app.route('/index')
