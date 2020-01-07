@@ -15,9 +15,15 @@ To run the application, it's recommended to setup a virtual environment.
     pipenv run python run.py
     ```
     
+  - Set the Here API environment variable:
+     ```
+    SECRET_KEY = as the app_code
+    ID_KEY = as the app_id
+    ```
+
   - Go to the address provided by Flask:
     
-    http://localhost:"_local port_"
+    http://localhost:"_localport_"
 
   - Ask GrandPy a question !! (In french :) )
     
