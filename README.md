@@ -1,4 +1,4 @@
-# Project 7: GrandPy Bot
+# GrandPy Bot (Project 7)
 
 
 ## Getting started
